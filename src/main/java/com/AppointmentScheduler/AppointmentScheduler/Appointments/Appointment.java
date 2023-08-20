@@ -1,4 +1,4 @@
-package com.example.Appointment;
+package com.AppointmentScheduler.AppointmentScheduler.Appointments;
 
 import java.util.Date;
 
