@@ -1,6 +1,9 @@
-package com.AppointmentScheduler.AppointmentScheduler.Appointments;
+package com.AppointmentScheduler.AppointmentScheduler.Appointment;
 
 import java.util.Date;
+
+import com.AppointmentScheduler.AppointmentScheduler.Consultant.Consultant;
+import com.AppointmentScheduler.AppointmentScheduler.JobSeeker.JobSeeker;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,26 +18,25 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "appointments")
 public class Appointment {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long appointment_id;
 	
-	@ManyToOne
+	 @ManyToOne
     @JoinColumn(name = "consultant_id")
     private Consultant consultant;
-	
-	@ManyToOne
+
+    @ManyToOne
     @JoinColumn(name = "job_seeker_id")
     private JobSeeker jobSeeker;
-	
-	@Temporal(TemporalType.DATE)
+
+    @Temporal(TemporalType.DATE)
     private Date appointmentDate;
-	
-	@Temporal(TemporalType.TIME)
+
+    @Temporal(TemporalType.TIME)
     private Date appointmentTime;
-	
-	// Default constructor
+
+    // Default constructor
     public Appointment() {
     }
 
@@ -87,4 +89,5 @@ public class Appointment {
 	}
     
     
+
 }
