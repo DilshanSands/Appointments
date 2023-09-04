@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
-
+@Entity
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +17,8 @@ public class Appointment {
     @JoinColumn(name = "jobseeker_id")
     private Jobseeker jobseeker;
     private LocalDate appointmentDate;
+    @jakarta.persistence.Id
+    private Long id;
 
     public Appointment() {
 
@@ -60,5 +62,13 @@ public class Appointment {
         this.consultant = consultant;
         this.jobseeker = jobseeker;
         this.appointmentDate = appointmentDate;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
