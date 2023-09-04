@@ -24,8 +24,9 @@ public class Consultant {
     public Consultant() {
     }
 
-	public Consultant(String firstName, String lastName, boolean isPartTime, String email) {
+	public Consultant(Integer consultant_id, String firstName, String lastName, boolean isPartTime, String email) {
 		super();
+		this.consultant_id = consultant_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.isPartTime = isPartTime;
