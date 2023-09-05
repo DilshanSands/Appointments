@@ -1,52 +1,36 @@
 package com.AppointmentScheduler.AppointmentScheduler.entity;
 
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
+@Table(name = "consultant")
 public class Consultant {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "consultant_id")
-    private Long consultantId;
-
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false, name = "consultant_name")
-    private String consultantName;
-    @jakarta.persistence.Id
     private Long id;
 
-    public Consultant(Long consultantId, String email, String consultantName, Long id) {
-        this.consultantId = consultantId;
-        this.email = email;
-        this.consultantName = consultantName;
-        this.id = id;
-    }
+    private String email;
+    private String consultantName;
 
     public Consultant() {
-
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Consultant(String email, String consultantName) {
+        this.email = email;
+        this.consultantName = consultantName;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Long getConsultantId() {
-        return consultantId;
-    }
-
-    public void setConsultantId(Long consultantId) {
-        this.consultantId = consultantId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -64,6 +48,4 @@ public class Consultant {
     public void setConsultantName(String consultantName) {
         this.consultantName = consultantName;
     }
-
 }
-

@@ -1,49 +1,43 @@
 package com.AppointmentScheduler.AppointmentScheduler.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
 
 @Entity
+@Table(name = "jobseeker")
 public class Jobseeker {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "jobseeker_id")
-    @jakarta.persistence.Id
-    private Long jobseekerId;
-    @Column(name = "jobseeker_name")
-    private String jobseekerName;
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    private Long id;
+
     private String email;
 
+    private String name;
+
+    private String phone;
+
+    private Long consultantId;
+
     public Jobseeker() {
-
-    }
-    public Long getJobseekerId() {
-        return jobseekerId;
     }
 
-    public void setJobseekerId(Long jobseekerId) {
-        this.jobseekerId = jobseekerId;
+    public Jobseeker(String email, String name, String phone, Long consultantId) {
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.consultantId = consultantId;
     }
 
-    public String getJobseekerName() {
-        return jobseekerName;
+    public Long getId() {
+        return id;
     }
 
-    public void setJobseekerName(String jobseekerName) {
-        this.jobseekerName = jobseekerName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -54,11 +48,29 @@ public class Jobseeker {
         this.email = email;
     }
 
-    public Jobseeker(Long jobseekerId, String jobseekerName, String phoneNumber, String email) {
-        this.jobseekerId = jobseekerId;
-        this.jobseekerName = jobseekerName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+    public String getName() {
+        return name;
     }
+
+    public void setName(String jobseekerName) {
+        this.name = jobseekerName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Long getConsultantId() {
+        return consultantId;
+    }
+
+    public void setConsultantId(Long consultantId) {
+        this.consultantId = consultantId;
+    }
+
 
 }

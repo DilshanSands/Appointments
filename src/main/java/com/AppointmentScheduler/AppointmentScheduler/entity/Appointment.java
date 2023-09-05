@@ -5,48 +5,48 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 @Entity
+@Table(name = "appointment")
 public class Appointment {
+    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "appointment_id")
-    private Long appointmentId;
-    @ManyToOne
-    @JoinColumn(name = "consultant_id")
-    private Consultant consultant;
-    @ManyToOne
-    @JoinColumn(name = "jobseeker_id")
-    private Jobseeker jobseeker;
-    private LocalDate appointmentDate;
-    @jakarta.persistence.Id
     private Long id;
 
+    private Long consultantId;
+    private Long jobseekerId;
+    private LocalDate appointmentDate;
+
     public Appointment() {
-
     }
 
-
-    public Long getAppointmentId() {
-        return appointmentId;
+    public Appointment(Long consultantId, Long jobseekerId, LocalDate appointmentDate) {
+        this.consultantId = consultantId;
+        this.jobseekerId = jobseekerId;
+        this.appointmentDate = appointmentDate;
     }
 
-    public void setAppointmentId(Long appointmentId) {
-        this.appointmentId = appointmentId;
+    public Long getId() {
+        return id;
     }
 
-    public Consultant getConsultant() {
-        return consultant;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setConsultant(Consultant consultant) {
-        this.consultant = consultant;
+    public Long getConsultantId() {
+        return consultantId;
     }
 
-    public Jobseeker getJobseeker() {
-        return jobseeker;
+    public void setConsultantId(Long consultantId) {
+        this.consultantId = consultantId;
     }
 
-    public void setJobseeker(Jobseeker jobseeker) {
-        this.jobseeker = jobseeker;
+    public Long getJobseekerId() {
+        return jobseekerId;
+    }
+
+    public void setJobseekerId(Long jobseekerId) {
+        this.jobseekerId = jobseekerId;
     }
 
     public LocalDate getAppointmentDate() {
@@ -57,18 +57,5 @@ public class Appointment {
         this.appointmentDate = appointmentDate;
     }
 
-    public Appointment(Long appointmentId, Consultant consultant, Jobseeker jobseeker, LocalDate appointmentDate) {
-        this.appointmentId = appointmentId;
-        this.consultant = consultant;
-        this.jobseeker = jobseeker;
-        this.appointmentDate = appointmentDate;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
