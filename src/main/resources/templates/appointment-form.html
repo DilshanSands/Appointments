@@ -35,59 +35,45 @@
 					<div class="booking-form">
 						<div class="form-header">
 							<h1>Schedule An Appointment</h1>
-							<a th:href="@{/consultants}">Add Consultant</a>
+							<a class="d-none" th:href="@{/consultants}">Add Consultant</a>
 						</div>
 						<form action="/appointments" method="post">
-							<input type="text" name="consultantName" placeholder="Consultant Name">
-							<input type="text" name="jobseekerName" placeholder="Jobseeker Name">
-							<input type="date" name="appointmentDate" placeholder="Appointment Date">
-							<input type="text" name="jobseekerPhone" placeholder="Jobseeker Phone Number">
-							<input type="email" name="jobseekerEmail" placeholder="Jobseeker Email">
-							<button type="submit">Create Appointment</button>
-						</form>
-						<form action="/appointments/new" class="" style="display: none" method="POST">
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-group">
-										<span class="form-label">Consultant Name</span>
-										<select class="form-control" id="consultantName" name="consultantName">
-											<th:block th:each="consultant : ${consultants}">
-												<option th:value="${consultant.id}" th:text="${consultant.consultantName}"></option>
-											</th:block>
-											<!-- Add more consultant options as needed -->
-										</select>
-<!--										<input class="form-control" type="text" placeholder="Enter your name">-->
-									</div>
-								</div>
-								<div class="col-sm-12">
-									<div class="form-group">
 										<span class="form-label">Job Seeker Name</span>
-										<input  id="jobseekerName" name="jobseekerName" class="form-control" type="text" placeholder="Enter your name">
+										<input type="text" class="form-control" name="jobseekerName" placeholder="Jobseeker Name">
 									</div>
 								</div>
 								<div class="col-sm-12">
 									<div class="form-group">
-										<span class="form-label">Appoinment Date</span>
-										<input class="form-control" type="date" id="appointmentDate" name="appointmentDate" required>
+										<span class="form-label">Consultant Name</span>
+									<input type="text" class="form-control" name="consultantName" placeholder="Consultant Name">
 									</div>
 								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-12">
 									<div class="form-group">
-										<span class="form-label">Phone</span>
-										<input class="form-control" type="tel"  id="jobseekerPhoneNumber" name="jobseekerPhoneNumber" placeholder="Enter your phone number">
+										<span class="form-label">Appointment Date</span>
+										<input type="date" class="form-control" name="appointmentDate" placeholder="Appointment Date">
 									</div>
 								</div>
-								<div class="col-sm-6">
+								<div class="col-sm-12">
 									<div class="form-group">
-										<span class="form-label">Email</span>
-										<input class="form-control" type="email" id="jobseekerEmail" name="jobseekerEmail" placeholder="Enter your Email Address">
+										<span class="form-label">Jobseeker Phone Number</span>
+										<input type="text" class="form-control" name="jobseekerPhone" placeholder="Jobseeker Phone Number">
 									</div>
 								</div>
-							</div>
-							<div class="form-btn">
-								<button class="submit-btn">Book Now</button>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<span class="form-label">Jobseeker Email</span>
+									<input type="email" class="form-control" name="jobseekerEmail" placeholder="Jobseeker Email">
+								</div>
+								<div class="form-btn">
+								<button class="submit-btn" type="submit">Create Appointment</button>
+								</div>
 							</div>
 						</form>
+
 					</div>
 				</div>
 			</div>
